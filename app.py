@@ -1,3 +1,4 @@
+st.write(df.columns)
 import pandas as pd
 import streamlit as st
 
@@ -8,9 +9,8 @@ st.set_page_config(page_title="IPL Dashboard", layout="wide")
 # ==============================
 @st.cache_data
 def load_data():
-    url = "https://drive.google.com/uc?id=1E6XOgre8yUCeBhpJS2xM1ZBqlZoJBe0m"
-    df = pd.read_csv(url)
-    
+    df = pd.read_csv("ipl_data.csv")
+    return df
     # Clean column names
     df.columns = df.columns.str.strip().str.lower()
     
