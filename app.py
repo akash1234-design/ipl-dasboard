@@ -30,7 +30,7 @@ st.title("🏏 IPL Match Analysis Dashboard")
 @st.cache_data
 def load_data():
     try:
-        url = https://drive.google.com/uc?export=download&id=1E6XOgre8yUCeBhpJS2xM1ZBqlZoJBe0m
+        url = "https://drive.google.com/uc?export=download&id=1E6XOgre8yUCeBhpJS2xM1ZBqlZoJBe0m"
         df = pd.read_csv(url)
         return df
     except Exception as e:
