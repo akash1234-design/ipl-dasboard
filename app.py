@@ -29,16 +29,18 @@ st.title("🏏 IPL Match Analysis Dashboard")
 # -------------------------------
 @st.cache_data
 def load_data():
-  import pandas as pd
-
-def load_data():
-    url = "https://drive.google.com/uc?id=1E6XOgre8yUCeBhpJS2xM1ZBqlZoJBe0m"
-    df = pd.read_csv(url)
-    return df
+    try:
+        url = https://drive.google.com/uc?export=download&id=1E6XOgre8yUCeBhpJS2xM1ZBqlZoJBe0m
+        df = pd.read_csv(url)
+        return df
+    except Exception as e:
+        st.error(f"Error loading data: {e}")
+        return pd.DataFrame()
 
 df = load_data()
 
-df = load_data()
+
+
 
 # Debug check (temporary)
 st.write("Available Seasons:", sorted(df['season'].unique()))
