@@ -32,16 +32,17 @@ st.write("Columns:", df.columns)
 # SAFE COLUMN HANDLING
 # ==============================
 if 'season' not in df.columns:
-    st.error("❌ 'season' column missing in dataset")
+    st.error("❌ 'season' column missing")
+    st.write("Available columns:",
+df.columns) 
     st.stop()
-
 # ==============================
 # SIDEBAR FILTER
 # ==============================
 st.sidebar.header("Filters")
 
 seasons = sorted(df['season'].dropna().unique())
-selected_season = st.sidebar.selectbox("Select Season", seasons)
+selected_season = st.sidebar.selectbox("Select season", seasons)
 
 filtered_df = df[df['season'] == selected_season]
 
