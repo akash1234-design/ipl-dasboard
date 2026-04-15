@@ -1,4 +1,4 @@
-st.write(df.columns)
+
 import pandas as pd
 import streamlit as st
 
