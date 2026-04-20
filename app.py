@@ -29,7 +29,7 @@ st.title("🏏 IPL Match Analysis Dashboard")
 # -------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"D:\ipl app\my_cricket_app\matches.csv")
+    df = pd.read_csv("ipl_data.csv")
     return df
 
 df = load_data()
@@ -136,8 +136,7 @@ st.subheader("Team vs Team Analysis")
 team1 = st.selectbox("Select Team 1", df['team1'].unique())
 team2 = st.selectbox("Select Team 2", df['team2'].unique())
 
-h2h = df[((df['team1'] == team1) & (df['team2'] == team2)) |
-         ((df['team1'] == team2) & (df['team2'] == team1))]
+h2h = df[((df['team1'] == team1) & (df['team2'] == team2))] ((df['team1'] == team2) & (df['team2'] == team1))
 
 st.write(f"Total Matches: {len(h2h)}")
 
