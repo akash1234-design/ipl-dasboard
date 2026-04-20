@@ -9,7 +9,7 @@ st.set_page_config(page_title="IPL Dashboard", layout="wide")
 # ==============================
 @st.cache_data
 def load_data():
-    df = pd.read_csv("ipl_data.csv")
+    df = pd.read_csv("matches.csv")   # Naya
     return df
     # Clean column names
     df.columns = df.columns.str.strip().str.lower()
