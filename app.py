@@ -377,21 +377,19 @@ with tab5:
     searchable = [c for c in ["team1","team2","winner","player_of_match","city","venue","toss_winner"] if c in filt.columns]
     search_in = st.multiselect("Kahan search karein?", searchable, default=searchable[:3])
 
-    display_df = filt.copy()
+       display_df = filt.copy()
     if search_q and search_in:
         filt = filt.reset_index(drop=True)
         mask = pd.Series([False]*len(filt))
         for col in search_in:
             mask |= filt[col].astype(str).str.contains(search_q, case=False, na=False)
-        display_df = filt
+        display_df = filt[mask] # ← Yaha mask lagana tha, tu bhool gaya
         st.success(f"✅ **{len(display_df)} matches** mile '{search_q}' ke liye!")
     else:
         display_df = filt
-        st.success(f"✅ **{len(display_df)} matches** mile '{search_q}' ke liye!")
-
-    show_cols = [c for c in ["season","date","team1","team2","winner","player_of_match","city","venue","toss_decision","result"] if c in display_df.columns]
-   st.dataframe(display_df[show_cols].reset_index(drop=True), width='stretch', hide_index=True)
-
+    
+    # Ye line if-else ke bahar, same level pe honi chahiye
+    st.dataframe(display_df[show_cols].reset_index(drop=True), width='stretch', hide_index=True)
     csv = display_df[show_cols].to_csv(index=False).encode("utf-8")
     st.download_button("⬇️ Download CSV", csv, "ipl_data.csv", "text/csv")
 
