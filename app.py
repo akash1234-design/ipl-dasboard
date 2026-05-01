@@ -377,13 +377,13 @@ with tab5:
     searchable = [c for c in ["team1","team2","winner","player_of_match","city","venue","toss_winner"] if c in filt.columns]
     search_in = st.multiselect("Kahan search karein?", searchable, default=searchable[:3])
 
-    display_df = filt.copy()
-        if search_q and search_in:
-        # FIX: filt ka index reset kar do pehle
-        filt = filt.reset_index(drop=True)
-        
-        mask = pd.Series([False]*len(filt))
-        for col in search_in:
+display_df = filt.copy()
+    if search_q and search_in:
+    # FIX: filt ka index reset kar do pehle
+    filt = filt.reset_index(drop=True)
+    
+    mask = pd.Series([False]*len(filt))
+    for col in search_in:
             mask |= filt[col].astype(str).str.contains(search_q, case=False, na=False)
         display_df = filt[mask]
         st.success(f"✅ **{len(display_df)} matches** mile '{search_q}' ke liye!")
