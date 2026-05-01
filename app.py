@@ -378,15 +378,21 @@ with tab5:
     search_in = st.multiselect("Kahan search karein?", searchable, default=searchable[:3])
 
     display_df = filt.copy()
-    if search_q and search_in:
+        if search_q and search_in:
+        # FIX: filt ka index reset kar do pehle
+        filt = filt.reset_index(drop=True)
+        
         mask = pd.Series([False]*len(filt))
         for col in search_in:
             mask |= filt[col].astype(str).str.contains(search_q, case=False, na=False)
         display_df = filt[mask]
         st.success(f"✅ **{len(display_df)} matches** mile '{search_q}' ke liye!")
+    else:
+        display_df = filt
+        st.success(f"✅ **{len(display_df)} matches** mile '{search_q}' ke liye!")
 
     show_cols = [c for c in ["season","date","team1","team2","winner","player_of_match","city","venue","toss_decision","result"] if c in display_df.columns]
-    st.dataframe(display_df[show_cols].reset_index(drop=True), use_container_width=True, hide_index=True, height=450)
+   st.dataframe(display_df[show_cols].reset_index(drop=True), width='stretch', hide_index=True)
 
     csv = display_df[show_cols].to_csv(index=False).encode("utf-8")
     st.download_button("⬇️ Download CSV", csv, "ipl_data.csv", "text/csv")
