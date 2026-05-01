@@ -389,6 +389,7 @@ else:
     display_df = filt
 
 st.dataframe(display_df.reset_index(drop=True), width='stretch', hide_index=True)
+csv = display_df.to_csv(index=False)
 st.download_button("📥 Download CSV", csv, "ipl_data.csv", "text/csv")
 
 # ── Footer ────────────────────────────────────────────────────────────────────
