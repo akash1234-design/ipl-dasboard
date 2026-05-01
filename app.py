@@ -388,9 +388,8 @@ if search_q and search_in:
 else:
     display_df = filt
 
-# Ye line if-else ke bahar, same level pe honi chahiye
-st.dataframe(display_df[show_cols].reset_index(drop=True), width='stretch', hide_index=True)
-st.download_button("📥 Download CSV", csv, "ipl_data.csv", "text/csv") # ← Left me le aao
+st.dataframe(display_df.reset_index(drop=True), width='stretch', hide_index=True)
+st.download_button("📥 Download CSV", csv, "ipl_data.csv", "text/csv")
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("---")
