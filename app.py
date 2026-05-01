@@ -390,7 +390,7 @@ else:
 
 # Ye line if-else ke bahar, same level pe honi chahiye
 st.dataframe(display_df[show_cols].reset_index(drop=True), width='stretch', hide_index=True)
-   st.download_button("📥 Download CSV", csv, "ipl_data.csv", "text/csv") # ← Left me le aao
+st.download_button("📥 Download CSV", csv, "ipl_data.csv", "text/csv") # ← Left me le aao
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("---")
