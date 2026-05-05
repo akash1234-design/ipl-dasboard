@@ -3,10 +3,10 @@
 Interactive Streamlit dashboard for complete IPL match analysis from 2008 to 2024. Explore 17 seasons, 1095 matches, and every stat that matters.
 
 ### 🚀 Live Demo
-**[Click Here to Launch Dashboard](https://ipl-dashboard-link.streamlit.app)** ← apna link yaha daal dena
+**[Click Here to Launch Dashboard] (https://ipl-dashboard-dpbaqpcqfzmfkjyuyqqjqv.streamlit.app/)**
 
 ### 📸 Dashboard Preview
-![IPL Dashboard](dashboard-screenshot.png) ← ye screenshot upload karke naam daal dena
+(ipl-dashboard.png) 
 
 ### 📊 Dashboard Stats
 - **1095** Total Matches Analyzed
