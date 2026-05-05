@@ -6,7 +6,8 @@ Interactive Streamlit dashboard for complete IPL match analysis from 2008 to 202
 **[Click Here to Launch Dashboard] (https://ipl-dashboard-dpbaqpcqfzmfkjyuyqqjqv.streamlit.app/)**
 
 ### 📸 Dashboard Preview
-(ipl-dashboard.png) 
+### 📸 Dashboard Preview
+![IPL Dashboard](ipl-dashboard.png)
 
 ### 📊 Dashboard Stats
 - **1095** Total Matches Analyzed
